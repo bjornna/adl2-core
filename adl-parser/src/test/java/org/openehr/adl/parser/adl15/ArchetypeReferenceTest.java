@@ -49,9 +49,9 @@ public class ArchetypeReferenceTest extends ParserTestBase {
         CArchetypeRoot root = AmQuery.get(archetype, "/content[openEHR-EHR-EVALUATION.substance_use_summary.v1]");
 
         assertThat(root.getRmTypeName()).isEqualTo("EVALUATION");
-        assertThat(root.getArchetypeRef()).isEqualTo("openEHR-EHR-EVALUATION.substance_use_summary.v1");
+        assertThat(root.getArchetypeId()).isEqualTo("openEHR-EHR-EVALUATION.substance_use_summary.v1");
         assertThat(root.getNodeId()).isEqualTo("openEHR-EHR-EVALUATION.substance_use_summary.v1");
-        assertThat(root.getArchetypeRef()).isEqualTo("openEHR-EHR-EVALUATION.substance_use_summary.v1");
+        assertThat(root.getArchetypeId()).isEqualTo("openEHR-EHR-EVALUATION.substance_use_summary.v1");
         assertThat(root.getSlotNodeId()).isEqualTo("at0001");
 
     }

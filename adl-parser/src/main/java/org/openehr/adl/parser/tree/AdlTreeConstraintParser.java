@@ -69,11 +69,16 @@ abstract class AdlTreeConstraintParser {
     private static CArchetypeRoot parseArchetypeReference(adlParser.ArchetypeReferenceConstraintContext context) {
         CArchetypeRoot result = new CArchetypeRoot();
         result.setRmTypeName(collectNonNullText(context.typeIdentifier()));
-        result.setArchetypeRef(collectNonNullText(context.archetypeId()));
-        result.setNodeId(result.getArchetypeRef());
+        result.setArchetypeId(createArchetypeId(collectNonNullText(context.archetypeId())));
+        result.setNodeId(result.getArchetypeId().getValue());
         result.setSlotNodeId(collectText(context.AT_CODE_VALUE()));
         result.setOccurrences(parseOccurrences(context.occurrences()));
         return result;
+    }
+    private static ArchetypeId createArchetypeId(String id){
+        final ArchetypeId a = new ArchetypeId();
+        a.setValue(id);
+        return a;
     }
 
     private static CObject parseAdlValueConstraint(adlParser.AdlValueContext context) {

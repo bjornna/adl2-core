@@ -121,7 +121,7 @@ public class OperationalTemplateBuilder {
             return makeClone(targetNode);
         } else if (source instanceof CArchetypeRoot) {
             CArchetypeRoot t = (CArchetypeRoot) source;
-            final String archetypeId = t.getArchetypeRef();
+            final String archetypeId = t.getArchetypeId().getValue();
             FlatArchetype targetArchetype = archetypeProvider.getFlatArchetype(archetypeId);
             CObject result = createArchetypeRoot(targetArchetype, state);
             result.setNodeId(source.getNodeId());
@@ -177,7 +177,7 @@ public class OperationalTemplateBuilder {
     private CArchetypeRoot createArchetypeRoot(FlatArchetype source, State state) {
 
         CArchetypeRoot result = new CArchetypeRoot();
-        result.setArchetypeRef(source.getArchetypeId().getValue());
+        result.setArchetypeId(source.getArchetypeId());
         result.setRmTypeName(source.getDefinition().getRmTypeName());
         result.setOccurrences(makeClone(source.getDefinition().getOccurrences()));
         result.setNodeId(source.getDefinition().getNodeId());
@@ -244,7 +244,7 @@ public class OperationalTemplateBuilder {
         public ArchetypeWalker.Action<? extends AmObject> preorderVisit(AmObject item, AmConstraintContext context) {
             if (!context.getAmParents().isEmpty() && item instanceof CArchetypeRoot) {
                 CArchetypeRoot car = (CArchetypeRoot) item;
-                Archetype archetype = archetypeProvider.getFlatArchetype(car.getArchetypeRef());
+                Archetype archetype = archetypeProvider.getFlatArchetype(car.getArchetypeId().getValue());
                 String defaultLanguage = archetype.getOriginalLanguage().getCodeString();
                 if (archetype.getAnnotations() != null) {
                     for (ResourceAnnotationNodes ran : archetype.getAnnotations().getItems()) {

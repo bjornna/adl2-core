@@ -48,7 +48,7 @@ public class UseArchetypeFeaturesTest {
     }
 
     private void assertArchetypeRoot(CArchetypeRoot car, String archetypeId, MultiplicityInterval expectedOccurrences) {
-        assertThat(car.getArchetypeRef()).isEqualTo(archetypeId);
+        assertThat(car.getArchetypeId()).isEqualTo(archetypeId);
         assertThat(AmMixins.of(car.getOccurrences()).isEqualTo(expectedOccurrences));
     }
 }

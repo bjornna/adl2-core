@@ -125,7 +125,7 @@ public class OperationalTemplateBuilderTest extends ParserTestBase {
     public void testOverrideEmpty() throws Exception {
         FlatArchetype archetype = archetypeProvider.getFlatArchetype("openEHR-EHR-COMPOSITION.override_empty.v1");
         CArchetypeRoot cArchetypeRoot = AmQuery.get(archetype, "content");
-        assertThat(cArchetypeRoot.getArchetypeRef()).isEqualTo("openEHR-EHR-OBSERVATION.body_weight.v1");
+        assertThat(cArchetypeRoot.getArchetypeId()).isEqualTo("openEHR-EHR-OBSERVATION.body_weight.v1");
     }
 
 
@@ -135,6 +135,6 @@ public class OperationalTemplateBuilderTest extends ParserTestBase {
         assertCComplexObject(obj, rmTypeName, nodeID, occurrences, attributes);
 
         CArchetypeRoot root = (CArchetypeRoot) obj;
-        assertThat(root.getArchetypeRef()).isEqualTo(archetypeId);
+        assertThat(root.getArchetypeId()).isEqualTo(archetypeId);
     }
 }
