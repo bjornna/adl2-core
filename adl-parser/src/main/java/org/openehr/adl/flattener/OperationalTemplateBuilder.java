@@ -89,7 +89,7 @@ public class OperationalTemplateBuilder {
             dest.getConstraintDefinitions().addAll(source.getConstraintDefinitions());
             dest.getValueSets().addAll(source.getValueSets());
 
-            target.getComponentOntologies().add(makeClone(dest));
+            target.getOntology().add(makeClone(dest));
         }
 
         // remove unneeded languages
@@ -99,7 +99,7 @@ public class OperationalTemplateBuilder {
         }
 
         LanguageRemovingVisitor visitor = new LanguageRemovingVisitor(existingLanguages);
-        for (FlatArchetypeOntology archetypeOntology : target.getComponentOntologies()) {
+        for (FlatArchetypeOntology archetypeOntology : target.getOntology()) {
             ArchetypeWalker.walkTerminology(visitor, archetypeOntology, new AmVisitContext());
         }
 

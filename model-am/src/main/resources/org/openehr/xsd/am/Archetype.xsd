@@ -30,6 +30,7 @@
             <xs:extension base="AUTHORED_RESOURCE">
                 <xs:sequence>
                     <xs:element name="uid" type="HIER_OBJECT_ID" minOccurs="0"/>
+                    <xs:element name="template_id" type="ARCHETYPE_ID" minOccurs="0"/> <!-- QUICK fix to add template id on template -->
                     <xs:element name="archetype_id" type="ARCHETYPE_ID"/>
                     <xs:element name="adl_version" type="xs:string" minOccurs="0"/>
                     <xs:element name="rm_release" type="xs:string" minOccurs="1"/>
@@ -39,8 +40,8 @@
                     <xs:element name="definition" type="C_COMPLEX_OBJECT"/>
                     <xs:element name="invariants" type="ASSERTION" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element name="terminology" type="ARCHETYPE_TERMINOLOGY"/>
-                    <xs:element name="is_template" type="xs:boolean"/>
-                    <xs:element name="is_overlay" type="xs:boolean"/>
+                    <xs:element name="is_template" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="is_overlay" type="xs:boolean" minOccurs="0"/>
 
                 </xs:sequence>
             </xs:extension>

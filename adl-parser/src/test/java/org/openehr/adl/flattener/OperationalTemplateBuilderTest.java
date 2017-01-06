@@ -96,12 +96,12 @@ public class OperationalTemplateBuilderTest extends ParserTestBase {
 
         Template template = operationalTemplateBuilder.build(archetype);
 
-        assertThat(template.getComponentOntologies()).hasSize(2);
-        assertThat(template.getComponentOntologies().get(0).getArchetypeId()).isEqualTo("openEHR-EHR-COMPOSITION.root_use_archetype.v1");
-        assertThat(template.getComponentOntologies().get(1).getArchetypeId()).isEqualTo("openEHR-EHR-EVALUATION.alert.v1");
+        assertThat(template.getOntology()).hasSize(2);
+        assertThat(template.getOntology().get(0).getArchetypeId()).isEqualTo("openEHR-EHR-COMPOSITION.root_use_archetype.v1");
+        assertThat(template.getOntology().get(1).getArchetypeId()).isEqualTo("openEHR-EHR-EVALUATION.alert.v1");
 
         // "de" language removed, since it is not present in root template
-        FlatArchetypeOntology alertOntology = template.getComponentOntologies().get(1);
+        FlatArchetypeOntology alertOntology = template.getOntology().get(1);
         assertThat(alertOntology.getTermDefinitions()).hasSize(1);
         assertThat(alertOntology.getTermDefinitions().get(0).getLanguage()).isEqualTo("en");
 

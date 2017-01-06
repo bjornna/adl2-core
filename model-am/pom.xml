@@ -54,6 +54,13 @@
                             <extension>true</extension>
                             <args>
                                 <arg>-Xinheritance</arg>
+                                <!-- <arg>-no-header</arg> -->
+                                <!--
+                                <arg>-Xxew</arg>
+                                -->
+                                <!--
+                                <arg>-Xxew:instantiate lazy</arg>
+                                -->
                             </args>
                             <bindingDirectory>src/main/resources/org/openehr/xjb/am</bindingDirectory>
                             <bindingIncludes>
@@ -65,6 +72,13 @@
                             <schemaDirectory>src/main/resources/org/openehr/xsd/am</schemaDirectory>
                             <generatePackage>org.openehr.jaxb.am</generatePackage>
                             <forceRegenerate>true</forceRegenerate>
+                            <plugins>
+                                <plugin>
+                                    <groupId>com.github.jaxb-xew-plugin</groupId>
+                                    <artifactId>jaxb-xew-plugin</artifactId>
+                                    <version>1.8</version>
+                                </plugin>
+                            </plugins>
                         </configuration>
                     </execution>
                 </executions>
