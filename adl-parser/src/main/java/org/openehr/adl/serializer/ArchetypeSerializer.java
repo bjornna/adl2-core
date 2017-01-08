@@ -70,10 +70,10 @@ public class ArchetypeSerializer {
     }
 
     private String serialize() {
-        if (archetype.isIsTemplate()) {
+        if ( archetype.isIsTemplate() != null && archetype.isIsTemplate()) {
             builder.append("template");
         } else {
-            if (archetype.isIsOverlay()) {
+            if (archetype.isIsOverlay() != null && archetype.isIsOverlay()) {
                 builder.append("template_overlay");
             } else {
                 builder.append("archetype");
