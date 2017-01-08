@@ -95,12 +95,29 @@ public class AmObjectFactory {
 
     public static CAttribute newCAttribute(String name, MultiplicityInterval existence, Cardinality cardinality,
             List<CObject> children) {
-        CAttribute result = new CAttribute();
+        CAttribute result = createAttribute(cardinality);
         result.setRmAttributeName(name);
         result.setExistence(existence);
         result.setCardinality(cardinality);
         result.getChildren().addAll(emptyIfNull(children));
         return result;
+    }
+    public static CAttribute createAttribute(Cardinality c){
+if(c == null){
+    return new CSingleAttribute() ;
+}else{
+    MultiplicityInterval m =    c.getInterval();
+    if(m == null){
+        return new CSingleAttribute();
+    }else{
+        if(m.getUpper() == null || m.getUpper() == 1){
+            return new CSingleAttribute();
+        }else{
+            return new CMultipleAttribute();
+        }
+    }
+}
+
     }
 
 

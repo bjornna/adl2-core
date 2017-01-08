@@ -82,7 +82,7 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <xs:complexType name="C_ATTRIBUTE">
+    <xs:complexType name="C_ATTRIBUTE" abstract="true">
         <xs:complexContent>
             <xs:extension base="ARCHETYPE_CONSTRAINT">
                 <xs:sequence>

@@ -22,6 +22,7 @@ package org.openehr.adl.flattener;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+import org.openehr.adl.am.AmObjectFactory;
 import org.openehr.adl.rm.RmModel;
 import org.openehr.adl.rm.RmPath;
 import org.openehr.adl.rm.RmType;
@@ -147,7 +148,7 @@ class ArchetypeMerger {
             return existing;
         } else { // attribute not found on sourceObject, create it
 
-            CAttribute newAttribute = new CAttribute();
+            CAttribute newAttribute = AmObjectFactory.createAttribute(null);
             newAttribute.setRmAttributeName(segment.getAttribute());
 
             CComplexObject newSource = new CComplexObject();

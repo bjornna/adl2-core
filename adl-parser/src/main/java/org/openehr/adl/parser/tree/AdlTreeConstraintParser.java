@@ -22,10 +22,12 @@ package org.openehr.adl.parser.tree;
 
 import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang.NotImplementedException;
+import org.openehr.adl.am.AmObjectFactory;
 import org.openehr.adl.am.OperatorKind;
 import org.openehr.adl.antlr4.generated.adlParser;
 import org.openehr.adl.rm.RmTypes;
 import org.openehr.adl.util.AdlUtils;
+import org.openehr.am.AmObject;
 import org.openehr.jaxb.am.*;
 import org.openehr.jaxb.rm.*;
 
@@ -228,7 +230,7 @@ abstract class AdlTreeConstraintParser {
     }
 
     private static CAttribute parseAttribute(adlParser.AttributeConstraintContext context) {
-        CAttribute result = new CAttribute();
+        CAttribute result = AmObjectFactory.createAttribute(null);
 
         if (context.existence() != null) {
             result.setExistence(parseOccurrences(context.existence().occurrenceRange()));

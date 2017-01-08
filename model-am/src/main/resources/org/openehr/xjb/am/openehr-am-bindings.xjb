@@ -267,6 +267,12 @@
         <jxb:bindings node="//xsd:complexType[@name='C_ATTRIBUTE']">
             <jxb:class name="CAttribute" implClass="CAttribute"/>
         </jxb:bindings>
+        <jxb:bindings node="//xsd:complexType[@name='C_SINGLE_ATTRIBUTE']">
+            <jxb:class name="CSingleAttribute" implClass="CSingleAttribute"/>
+        </jxb:bindings>
+        <jxb:bindings node="//xsd:complexType[@name='C_MULTIPLE_ATTRIBUTE']">
+            <jxb:class name="CMultipleAttribute" implClass="CMultipleAttribute"/>
+        </jxb:bindings>
         <jxb:bindings node="//xsd:complexType[@name='C_OBJECT_GROUP']">
             <jxb:class name="CObjectGroup" implClass="CObjectGroup"/>
         </jxb:bindings>
