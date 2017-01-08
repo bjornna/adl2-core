@@ -98,6 +98,22 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
+    <xs:complexType name="C_SINGLE_ATTRIBUTE">
+        <xs:complexContent>
+            <xs:extension base="C_ATTRIBUTE">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="C_MULTIPLE_ATTRIBUTE">
+        <xs:complexContent>
+            <xs:extension base="C_ATTRIBUTE">
+                <xs:sequence>
+                    <xs:element name="cardinality" type="CARDINALITY"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
     <xs:complexType name="C_OBJECT_GROUP">
         <xs:complexContent>
             <xs:extension base="ARCHETYPE_CONSTRAINT">
